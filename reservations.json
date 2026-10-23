@@ -1,6 +1,4 @@
-git remote add origin https://github.com/harisharish617/hotel-booking.git
-git branch -M main
-git push -u origin main[
+[
   {
     "hotelId": 6,
     "hotelName": "Bengaluru Urban Stay",
