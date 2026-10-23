@@ -1,7 +1,25 @@
 import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from './api';
 
-export const loadHotels = createAsyncThunk('hotels/load', async () => (await api.getHotels()).data);
+
+import { hotels as localHotels } from './data';
+
+export const loadHotels = createAsyncThunk(
+  'hotels/load',
+  async () => {
+    try {
+      const response = await api.getHotels();
+      return response.data;
+    } catch (error) {
+      console.warn(
+        'Hotel API unavailable. Loading demo hotel data.',
+        error.message
+      );
+      return localHotels;
+    }
+  }
+);
+
 export const loadReservations = createAsyncThunk('reservations/load', async (_, { rejectWithValue }) => {
   try { return (await api.getReservations()).data; }
   catch (e) { return rejectWithValue(e.response?.status === 401 ? 'Please log in to view reservations.' : 'Unable to load reservations.'); }
