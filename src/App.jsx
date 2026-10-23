@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useEffect, useMemo, useState } from 'react';
-const HotelCard = lazyloading(() => import('./components/HotelCard.jsx'));
-const BookingPage = lazyloading(() => import('./components/BookingPage.jsx'));
+const HotelCard = lazy(() => import('./components/HotelCard.jsx'));
+const BookingPage = lazy(() => import('./components/BookingPage.jsx'));
 const LoadingChunk = () => <div className="state-message" role="status">Loading page…</div>;
 import { useDispatch, useSelector } from 'react-redux';
 import { cancelBooking, createBooking, loadHotels, loadReservations, login, logout, updateBooking } from './store';
