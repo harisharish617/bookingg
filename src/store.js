@@ -4,21 +4,14 @@ import { api } from './api';
 
 import { hotels as localHotels } from './data';
 
+
 export const loadHotels = createAsyncThunk(
   'hotels/load',
   async () => {
-    try {
-      const response = await api.getHotels();
-      return response.data;
-    } catch (error) {
-      console.warn(
-        'Hotel API unavailable. Loading demo hotel data.',
-        error.message
-      );
-      return localHotels;
-    }
+    return localHotels;
   }
 );
+
 
 export const loadReservations = createAsyncThunk('reservations/load', async (_, { rejectWithValue }) => {
   try { return (await api.getReservations()).data; }
