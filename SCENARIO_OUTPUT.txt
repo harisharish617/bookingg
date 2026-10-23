@@ -1,0 +1,34 @@
+SCENARIO 4: HOTEL ROOM BOOKING WEB APPLICATION
+Expected application output (demonstration)
+
+HOME / EXPERIMENT 1
+StayEase — Find your perfect stay
+Popular stays: The Grand Marina (Chennai), Hillview Retreat (Ooty), Coimbatore Comfort Inn (Coimbatore), Pondy Bay Resort (Puducherry), Temple Town Suites (Madurai), Bengaluru Urban Stay (Bengaluru).
+Hotel cards show location, rating, amenities, availability and price per night.
+Search Ooty -> Hillview Retreat appears.
+Available only -> unavailable properties are hidden.
+View rooms -> room types, guest capacity, check-in/check-out dates, and price estimate appear.
+Loading and no-results states are displayed where applicable.
+
+BOOKING ESTIMATE / EXPERIMENT 2
+Example: Hillview Retreat, Mountain View, 2 nights.
+Room subtotal = ₹3,500 × 2 = ₹7,000
+Taxes and fees (12%) = ₹840
+Total amount = ₹7,840
+Redux Toolkit stores application state; reservation changes persist in browser localStorage.
+
+RESERVATION CRUD / EXPERIMENT 3
+GET: Hotel list and reservation history load asynchronously.
+POST: Confirm booking -> reservation appears under My reservations.
+PATCH: Edit guests -> guest count is updated.
+DELETE: Cancel -> reservation is removed after confirmation.
+Loading, errors, and retry messages are shown for async operations.
+
+AUTHENTICATION / EXPERIMENT 4
+Logged out -> protected booking and reservation history require sign-in.
+Demo credentials: guest@stayease.com / demo123
+Login -> demo bearer token is stored in localStorage and booking is enabled.
+Reservation API requests check for a token; Axios interceptor example attaches Authorization: Bearer <token>.
+Logout -> token and user details are cleared; protected history is inaccessible.
+
+Note: This is expected output for the self-contained mock API project. It does not contact a real hotel booking service or process payments.
